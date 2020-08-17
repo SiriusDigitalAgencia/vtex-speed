@@ -25,6 +25,9 @@ atualização do vtex/speed adaptado para o nosso modo de trabalho e assim poder
 5 - executar o comando de baixar o conteúdo do repositório.
 <br/><code>git pull origin master</code>
 
+6 - Instalar os packages atualizados do VTEX Speed
+<br/><code>npm install</code>
+
 ## Passos para executar o vtex-speed
 npm start
 
