@@ -28,14 +28,13 @@ atualização do vtex/speed adaptado para o nosso modo de trabalho e assim poder
 6 - Instalar os packages atualizados do VTEX Speed
 <br/><code>npm install</code>
 
-## Passos para executar o vtex-speed
-npm start
+## Passos para executar o vtex-speed e acessar o site da loja em ambiente de desenvolvimento
+1 - npm start
 
-## Passos para acessar o site do vtex-speed
-1 - Abra o navegador e acesse a url do site abaixo, alterando o {{acountname}} pelo nome da conta incluido no arquivo package.json
+2 - Abra o navegador e acesse a url do site abaixo, alterando o {{acountname}} pelo nome da conta incluido no arquivo package.json
 <br/>http://{{accountname}}.vtexlocal.com.br 
 
-2 - Faça login com a conta que possui no admin da loja
+3 - Faça login com a conta que possui no admin da loja
 
 ### Pronto. Todos os passos estão prontos para começar a trabalhar.
 
