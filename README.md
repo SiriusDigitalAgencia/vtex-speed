@@ -9,7 +9,7 @@ atualização do vtex/speed adaptado para o nosso modo de trabalho e assim poder
 
 3 - apagar a pasta .git e os arquivos .gitignore, Gruntfile.coffee, README.md, package.json
 
-4 - Se for um novo projeto, executar os comandos do 4a. Se for um projeto existente, executar os comandos do 4b.
+4 - Se for um novo projeto (projeto vazio no GitHub), executar os comandos do 4a. Se for um projeto existente, executar os comandos do 4b.
 
 4a) 
 <br/>- executar o comando de remote para baixar a nossa versão vtex-speed 
@@ -18,7 +18,7 @@ atualização do vtex/speed adaptado para o nosso modo de trabalho e assim poder
 - alterar o arquivo package.json na linha 3 ("accountName": "nome-da-conta") para indicar o accountname que estará trabalhando.
 
 4b) 
-<br/>- executar o comando de remote para baixar a versão do projeto ativo
+<br/>- executar o comando de remote para baixar a versão do projeto ativo que deseja trabalhar (repositório da lojavirtual).
 <br/><code>git init .</code>
 <br/><code>git remote add origin url-remota-repositorio</code>
 
