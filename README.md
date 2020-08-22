@@ -13,7 +13,7 @@ atualização do vtex/speed adaptado para o nosso modo de trabalho e assim poder
 
 4a) 
 <br/>- executar o comando de remote para baixar a nossa versão vtex-speed 
-<br/><code>git remote add origin https://github.com/ohmaidigital/vtex-speed.git</code>
+<br/><code>git remote add origin https://github.com/ohmai-digital/vtex-speed.git</code>
 
 - alterar o arquivo package.json na linha 3 ("accountName": "nome-da-conta") para indicar o accountname que estará trabalhando.
 
