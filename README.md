@@ -1,5 +1,6 @@
 # vtex-speed
 atualização do vtex/speed adaptado para o nosso modo de trabalho e assim poder usar o git do projeto no mesmo ambiente do vtex-speed.
+
 O objetivo é armazenar no git uma versão do projeto usando o mesmo ambiente do vtex-speed, mas sem armazenar no projeto os arquivos do vtex-speed que não são necessários para o projeto. 
 
 ## Passos para instalação :
