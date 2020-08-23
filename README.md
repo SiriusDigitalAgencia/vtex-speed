@@ -1,5 +1,6 @@
 # vtex-speed
 atualização do vtex/speed adaptado para o nosso modo de trabalho e assim poder usar o git do projeto no mesmo ambiente do vtex-speed.
+O objetivo é armazenar no git uma versão do projeto usando o mesmo ambiente do vtex-speed, mas sem armazenar no projeto os arquivos do vtex-speed que não são necessários para o projeto. 
 
 ## Passos para instalação :
 1 - baixar o git do vtex-speed em https://github.com/vtex/speed.git
@@ -20,12 +21,20 @@ atualização do vtex/speed adaptado para o nosso modo de trabalho e assim poder
 <br />- alterar o arquivo package.json na linha 3 ("accountName": "nome-da-conta") para indicar o accountname que estará trabalhando.
 <br/>- remover o relacionamento com o repositório vtex-speed
 <br/><code>git remote remove origin</code>
+<br/>- Apagar o arquivo README.md
 
 6 - Executar os comandos de remote para baixar a versão do projeto ativo que deseja trabalhar (repositório da lojavirtual).
 <br/><code>git remote add origin url-remota-repositorio</code>
 
-7 - Instalar os packages atualizados do VTEX Speed
+7 - Atualize o repositorio local com os dados do repositório da loja. Mesmo que esteja vazio online.
+<br/><code>git pull origin master --allow-unrelated-histories</code>
+
+8 - Instalar os packages atualizados do VTEX Speed
 <br/><code>npm install</code>
+
+9 - Renomear a pasta para o nome do projeto.
+- volte um nível na pasta aberta e execute o comando abaixo.
+<br/><code>rename speed nome-repositorio</code>
 
 ## Passos para executar o vtex-speed e acessar o site da loja em ambiente de desenvolvimento
 1 - npm start
