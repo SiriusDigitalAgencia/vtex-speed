@@ -7,25 +7,24 @@ atualização do vtex/speed adaptado para o nosso modo de trabalho e assim poder
 
 2 - entrar na pasta speed gerada pelo clone.
 
-3 - apagar a pasta .git e os arquivos .gitignore, Gruntfile.coffee, README.md, package.json
+3 - apagar a pasta .git e os arquivos .gitignore, Gruntfile.coffee, README.md, package.json e limpar a pasta src
 
-4 - Se for um novo projeto (projeto vazio no GitHub), executar os comandos do 4a. Se for um projeto existente, executar os comandos do 4b.
-
-4a) 
-<br/>- executar o comando de remote para baixar a nossa versão vtex-speed 
-<br/><code>git remote add origin https://github.com/ohmai-digital/vtex-speed.git</code>
-
-- alterar o arquivo package.json na linha 3 ("accountName": "nome-da-conta") para indicar o accountname que estará trabalhando.
-
-4b) 
-<br/>- executar o comando de remote para baixar a versão do projeto ativo que deseja trabalhar (repositório da lojavirtual).
+4 - Criar ambiente git zerado
 <br/><code>git init .</code>
+
+5 - Se for um projeto vazio no GitHub, executar os comandos abaixo. Se for um projeto existente, pular para o passo 6.
+<br/>- executar o comando de remote para baixar o repositório da nossa versão vtex-speed 
+<br/><code>git remote add origin https://github.com/ohmai-digital/vtex-speed.git</code>
+<br />- executar o comando de baixar o conteúdo do repositório.
+<br/><code>git pull origin master</code>
+<br />- alterar o arquivo package.json na linha 3 ("accountName": "nome-da-conta") para indicar o accountname que estará trabalhando.
+<br/>- remover o relacionamento com o repositório vtex-speed
+<br/><code>git remote remove origin</code>
+
+6 - Executar os comandos de remote para baixar a versão do projeto ativo que deseja trabalhar (repositório da lojavirtual).
 <br/><code>git remote add origin url-remota-repositorio</code>
 
-5 - executar o comando de baixar o conteúdo do repositório.
-<br/><code>git pull origin master</code>
-
-6 - Instalar os packages atualizados do VTEX Speed
+7 - Instalar os packages atualizados do VTEX Speed
 <br/><code>npm install</code>
 
 ## Passos para executar o vtex-speed e acessar o site da loja em ambiente de desenvolvimento
