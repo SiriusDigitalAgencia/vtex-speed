@@ -1,10 +1,11 @@
-#speed
-node_modules
+# speed
 ISSUE_TEMPLATE.md
 LICENSE
+
+# node
+node_modules
+build
 package-lock.json
-README.md
-speed-middleware.coffee
 yarn.lock
 
 # Logs
