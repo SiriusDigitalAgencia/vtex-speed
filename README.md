@@ -10,23 +10,15 @@ A vantagem de ter o vtex/speed junto do projeto implantado é de apenas baixar o
 
 2 - entrar na pasta vtex-speed gerada pelo clone.
 
-3 - apagar a pasta .git e o arquivo README.md .
+3 - apagar a pasta .git e o arquivo README.md e renomear o arquivo README-projeto.md para README.md.
 
-4 - Criar ambiente git zerado
+4 - alterar o arquivo package.json na linha 3 ("accountName": "nome-da-conta") para indicar o accountname que estará trabalhando.
+
+5 - Criar ambiente git zerado
 <br/><code>git init .</code>
 
-5 - Se for um projeto vazio no GitHub, executar os comandos abaixo. Se for um projeto existente, pular para o passo 6.
-<br/>- executar o comando de remote para baixar o repositório da nossa versão vtex-speed
-<br/><code>git remote add origin https://github.com/ohmai-digital/vtex-speed.git</code>
-<br />- executar o comando de baixar o conteúdo do repositório.
-<br/><code>git pull origin master</code>
-<br />- alterar o arquivo package.json na linha 3 ("accountName": "nome-da-conta") para indicar o accountname que estará trabalhando.
-<br/>- remover o relacionamento com o repositório vtex-speed
-<br/><code>git remote remove origin</code>
-<br/>- Apagar o arquivo README.md
-
-6 - Executar os comandos de remote para baixar a versão do projeto ativo que deseja trabalhar (repositório da lojavirtual).
-<br/><code>git remote add origin url-remota-repositorio</code>
+6 - Conectar o GIT local ao GIT Hub.
+<br/><code>git remote add origin url-remota-repositorio-projeto</code>
 
 7 - Atualize o repositorio local com os dados do repositório da loja. Mesmo que esteja vazio online.
 <br/><code>git pull origin master --allow-unrelated-histories</code>
@@ -34,21 +26,18 @@ A vantagem de ter o vtex/speed junto do projeto implantado é de apenas baixar o
 8 - Instalar os packages atualizados do VTEX Speed
 <br/><code>npm install</code>
 
-9 - Renomear a pasta para o nome do projeto.
-
-- volte um nível na pasta aberta e execute o comando abaixo.
-  <br/><code>rename speed nome-repositorio</code>
-
 ## Passos para executar o vtex-speed e acessar o site da loja em ambiente de desenvolvimento
 
-1 - npm start
+1 - npm start ou yarn start
 
 2 - Abra o navegador e acesse a url do site abaixo, alterando o {{acountname}} pelo nome da conta incluido no arquivo package.json
-<br/>http://{{accountname}}.vtexlocal.com.br
+<br/>https://{{accountname}}.vtexlocal.com.br
 
-3 - Faça login com a conta que possui no admin da loja
+3 - Autorize o navegador a acessar o ambiente seguro mesmo sem ser reconhecido.
 
-### Pronto. Todos os passos estão prontos para começar a trabalhar.
+4 - Faça login com a conta que possui no admin da loja
+
+### Pronto. Todos os passos estão prontos para começar a trabalhar
 
 ## Passos para commit
 
