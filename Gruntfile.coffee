@@ -11,14 +11,26 @@ module.exports = (grunt) ->
   pkg = grunt.file.readJSON('package.json')
 
   accountName = process.env.VTEX_ACCOUNT or pkg.accountName or 'basedevmkp'
-  environment = process.env.VTEX_ENV or pkg.env or 'vtexcommercestable'
-  secureUrl = process.env.VTEX_SECURE_URL or pkg.secureUrl or true
-  port = process.env.PORT or pkg.port or 80
+  environment = process.env.VTEX_ENV or pkg.env or 'vtexcommercestable.com.br'
+  secureUrl = process.env.VTEX_SECURE_URL or pkg.secureUrl or false
+  if secureUrl
+    portAuto = 443
+  else
+    portAuto = 80
 
-  console.log('Running on port ' + port)
+  port = process.env.PORT or pkg.port or portAuto or 80
+
+  if secureUrl
+    secureProtocol = 'https'
+  else
+    secureProtocol = 'http'
 
   compress = grunt.option('compress')
   verbose = grunt.option('verbose')
+
+  console.log("compress = #{compress}")
+  console.log("verbose = #{verbose}")
+  console.log('Running on port ' + port)
 
   if secureUrl
     imgProxyOptions = url.parse("https://#{accountName}.vteximg.com.br/arquivos")
@@ -26,11 +38,14 @@ module.exports = (grunt) ->
     imgProxyOptions = url.parse("http://#{accountName}.vteximg.com.br/arquivos")
 
   imgProxyOptions.route = '/arquivos'
-
+  console.log('accountName = ' + accountName)
+  
   # portalHost is also used by connect-http-please
   # example: basedevmkp.vtexcommercestable.com.br
-  portalHost = "#{accountName}.#{environment}.com.br"
+  portalHost = "#{accountName}.#{environment}"
   localHost = "#{accountName}.vtexlocal.com.br"
+
+  console.log("portalHost = #{portalHost}")
 
   if port isnt 80
     localHost += ":#{port}"
@@ -65,14 +80,25 @@ module.exports = (grunt) ->
           cwd: 'src/'
           src: ['**/*.js']
           dest: 'build/arquivos/'
+          ext: '.min.js'
         ]
       css:
         files: [
+          {
           expand: true
           flatten: true
           cwd: 'src/'
-          src: ['**/*.css']
+          src: ['**/*.css','!**/*.ttf.css','!**/*.woff.css','!**/*.svg.css']
           dest: 'build/arquivos/'
+          ext: '.min.css'
+          },
+          {
+          expand: true
+          flatten: true
+          cwd: 'src/'
+          src: ['**/*.ttf.css','**/*.woff.css','**/*.svg.css']
+          dest: 'build/arquivos/'
+          }
         ]
 
     coffee:
@@ -98,7 +124,7 @@ module.exports = (grunt) ->
           cwd: 'src/'
           src: ['**/*.scss']
           dest: 'build/arquivos/'
-          ext: '.css'
+          ext: '.min.css'
         ]
       min:
         options:
@@ -135,7 +161,7 @@ module.exports = (grunt) ->
         src: ['**/*.css', '!**/*.min.css']
         dest: 'build/arquivos/'
         ext: '.min.css'
-
+    
     uglify:
       options:
         sourceMap:
@@ -150,7 +176,7 @@ module.exports = (grunt) ->
         files: [{
           expand: true
           flatten: true
-          cwd: 'build/'
+          cwd: 'src/'
           src: ['**/*.js', '!**/*.min.js']
           dest: 'build/arquivos/'
           ext: '.min.js'
@@ -178,6 +204,7 @@ module.exports = (grunt) ->
           hostname: "*"
           livereload: true
           port: port
+          protocol: secureProtocol
           middleware: [
             middlewares.disableCompression
             middlewares.rewriteLocationHeader(rewriteLocation)
